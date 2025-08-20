@@ -196,7 +196,7 @@
     display: grid;
     /*     max-height: 280px; */
     column-gap: 10px;
-     
+         text-align: center;
     justify-content: center;
     align-items: center;
     /*         border: 10px solid green; */
