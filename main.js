@@ -1,341 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
+// HAMBURGER MENU
+/* Toggle between showing and hiding the navigation menu links when the user clicks on the hamburger menu / bar icon */
+//AND ADDED EVENT LISTENER TO MAKE MENU CLOSE ON LINK CLICK
+function myFunction() {
+  var x = document.getElementById("myLinks");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+  x.addEventListener("click", function () {
+    x.style.display = "none";
+  });
+}
 
-<head>
-  <meta charset="UTF-8">
-  <link href="https://fonts.googleapis.com/css?family=Akatab" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+// START CAROUSEL
 
-  <style>
-    body {
-      font-family: 'Akatab';
-      font-size: 22px;
-    }
-  </style>
-  <title>Sonora desert</title>
-  <!--STYLE.CSS FILE LINK HERE -->
-  <link rel="stylesheet" href="./style.css" />
-  <!-- TRY JS FILE HERE BASED ON STACK OVERFLOW https://stackoverflow.com/questions/68424003/modal-box-opens-on-codepen-but-not-on-localhost -->
-  <!-- INCLUDE defer SO DIRECT BROWSER THAT THE SCRIPT IS MEANT TO BE EXECUTED AFTER THE DOCUMENT HAS BEEN PARSED-->
-  <script src="./main.js" defer></script>
-</head>
+let imageIndex = 1;
+showSlideImage(imageIndex);
 
-<!--MAIN.JS FILE LINK HERE -->
-<!-- <script src="./main.js"></script> -->
+// Next/previous controls
+function plusSlideImage(m) {
+  showSlideImage((imageIndex += m));
+}
 
-<!--   START TOP NAVIGATION BAR FOR DESKTOP -->
-<ul class="page-navigation">
-<!--   <li><a href="home">Go to home page</a></li>
-  <a href="https://vasilisgarden.com/" target="_blank">Vasili’s Garden</a>
-  <li><a href="#arizona">Go to Arizona</a></li>
-  <li><a href="#california">Go to California</a></li>
-  <li><a href="#colorado">Go to Colorado</a></li>
-  <li><a href="#new-mexico">Go to New Mexico</a></li>
-  <li><a href="#texas">Go to Texas</a></li>
-  <li><a href="#utah-nevada">Go to Utah and Nevada</a></li> -->
-   <a href="https://citmandigitaljobs.github.io/2024holiday/" target="_blank">Home page</a>
-      <a href="https://citmandigitaljobs.github.io/citmandigitaljobs-2024holiday-Arizona/" target="_blank">Arizona</a>
-      <a href="https://citmandigitaljobs.github.io/citmandigitaljobs-2024holiday-California/" target="_blank">California</a>
-      <a href="https://citmandigitaljobs.github.io/citmandigitaljobs-2024holiday-Colorado/" target="_blank">Colorado</a>
-      <a href="https://citmandigitaljobs.github.io/citmandigitaljobs-2024holiday-New-Mexico/" target="_blank">New Mexico</a>
-      <a href="https://citmandigitaljobs.github.io/citmandigitaljobs-2024holiday-Texas/" target="_blank">Texas</a>
-      <a href="https://citmandigitaljobs.github.io/citmandigitaljobs-2024holiday-Utah-Nevada/" target="_blank">Utah and Nevada</a>
-</ul>
-<!--   END TOP NAVIGATION BAR FOR DESKTOP -->
+// Thumbnail image controls
+// function currentSlideImage(m) {
+//   showSlideImage((imageIndex = m));
+// }
 
-<!--            PUT HAMBURGER MENU AT TOP  -->
-<div class="topnav" id="topMenu">
-  <!-- HAMBURGER MENU -->
-  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-    <i class="fa fa-bars"></i>
-    <!-- NAVIGATION LINKS -->
-    <nav id="myLinks">
-      <!--      <li><a href="home">Go to home page</a></li> -->
-    <a href="https://citmandigitaljobs.github.io/2024holiday/" target="_blank">Home page</a>
-      <a href="https://citmandigitaljobs.github.io/citmandigitaljobs-2024holiday-Arizona/" target="_blank">Arizona</a>
-      <a href="https://citmandigitaljobs.github.io/citmandigitaljobs-2024holiday-California/" target="_blank">California</a>
-      <a href="https://citmandigitaljobs.github.io/citmandigitaljobs-2024holiday-Colorado/" target="_blank">Colorado</a>
-      <a href="https://citmandigitaljobs.github.io/citmandigitaljobs-2024holiday-New-Mexico/" target="_blank">New Mexico</a>
-      <a href="https://citmandigitaljobs.github.io/citmandigitaljobs-2024holiday-Texas/" target="_blank">Texas</a>
-      <a href="https://citmandigitaljobs.github.io/citmandigitaljobs-2024holiday-Utah-Nevada/" target="_blank">Utah and Nevada</a>
-    </nav>
-  </a>
-</div>
-<!--    END HAMBURGER MENU    -->
+function showSlideImage(m) {
+  let j;
+  let slideImage = document.getElementsByClassName("carousel-image");
+  if (m > slideImage.length) {
+    imageIndex = 1;
+  }
+  if (m < 1) {
+    imageIndex = slideImage.length;
+  }
+  for (j = 0; j < slideImage.length; j++) {
+    slideImage[j].style.display = "none";
+  }
 
-<body>
-
-  <main>
-    <section class="grid-content">
-      <div class="content">
-        <p>Sonora desert</p>
-        <!-- ----------------------- -->
-
-        <!--         START CAROUSEL -->
-        <!--         <section class="carousel">
-          <div class="arrows"> -->
-        <!-- ------------- -->
-        <div class="carousel-image">
-          <img class="image" src="https://i.imgur.com/sXjrXW2.png" alt="Tucson Sonora desert">
-        </div>
-        <!-- ------------- -->
-        <div class="carousel-image">
-          <img class="image" src="https://i.imgur.com/ronj7ol.png" alt="Tucson Sonora desert">
-        </div>
-        <!-- ------------- -->
-         <div class="carousel-image">
-          <img class="image" src="https://i.imgur.com/9HAOHvz.jpeg" alt="Tucson Sonora desert">
-        </div>
-        <!-- ------------- -->
-         <div class="carousel-image">
-          <img class="image" src="https://i.imgur.com/VX63lqt.jpeg" alt="Tucson Sonora desert">
-        </div>
-        <!-- ------------- -->
-         <div class="carousel-image">
-          <img class="image" src="https://i.imgur.com/wX5rLIF.jpeg" alt="Tucson Sonora desert">
-        </div>
-        <!-- ------------- -->
-         <div class="carousel-image">
-          <img class="image" src="https://i.imgur.com/s2slemE.jpeg" alt="Tucson Sonora desert">
-        </div>
-        <!-- ------------- -->
-         <div class="carousel-image">
-          <img class="image" src="https://i.imgur.com/luG9f07.jpeg" alt="Tucson Sonora desert">
-        </div>
-        <!-- ------------- -->
-         <div class="carousel-image">
-          <img class="image" src="https://i.imgur.com/kLw7mZb.jpeg" alt="Tucson Sonora desert">
-        </div>
-        <!-- ------------- -->
-         <div class="carousel-image">
-          <img class="image" src="https://i.imgur.com/Vnw3pHC.jpeg" alt="Tucson Sonora desert">
-        </div>
-        <!-- ------------- -->
-         <div class="carousel-image">
-          <img class="image" src="https://i.imgur.com/fswo1J8.jpeg" alt="Tucson Sonora desert">
-        </div>
-        <!-- ------------- -->
-         <div class="carousel-image">
-          <img class="image" src="https://i.imgur.com/I99uCaH.jpeg" alt="Tucson Sonora desert">
-        </div>
-        <!-- ------------- -->        
-        <div class="carousel-image">
-          <img class="image" src="https://i.imgur.com/0gElLe7.jpeg" alt="Tucson Sonora desert">
-        </div>
-        <!-- ------------- -->
-        <div class="carousel-image">
-          <img class="image" src="https://i.imgur.com/fWiKRQm.jpeg" alt="Tucson Sonora desert">
-        </div>
-        <!-- ------------- -->
-        <div class="carousel-image">
-          <img class="image" src="https://i.imgur.com/eIB5k1v.jpeg" alt="Tucson Sonora desert">
-        </div>
-        <!-- ------------- -->
-        <div class="carousel-image">
-          <img class="image" src="https://i.imgur.com/qkskZL2.jpeg" alt="Tucson Sonora desert">
-        </div>
-        <!-- ------------- -->
-        <div class="carousel-image">
-          <img class="image" src="https://i.imgur.com/wkcVom0.jpeg" alt="Tucson Sonora desert">
-        </div>
-        <!-- ------------- -->
-        <div class="carousel-image">
-          <img class="image" src="https://i.imgur.com/B8hPj2a.jpeg" alt="Tucson Sonora desert">
-        </div>
-        <!-- ------------- -->
-        <div class="carousel-image">
-          <img class="image" src="https://i.imgur.com/gT3V60y.jpeg" alt="Tucson Sonora desert">
-        </div>
-        <!-- ------------- -->
-        <div class="carousel-image">
-          <img class="image" src="https://i.imgur.com/sbN36ry.jpeg" alt="Tucson Sonora desert">
-        </div>
-        <!-- ------------- -->
-        <div class="carousel-image">
-          <img class="image" src="https://i.imgur.com/CScJE1m.jpeg" alt="Tucson Sonora desert">
-        </div>
-        <!-- ------------- -->
-        <div class="carousel-image">
-          <img class="image" src="https://i.imgur.com/TtztVR7.jpeg" alt="Tucson Sonora desert">
-        </div>
-        <!-- ------------- -->
-        <div class="carousel-image">
-          <img class="image" src="https://i.imgur.com/V0br2vP.jpeg" alt="Tucson Sonora desert">
-        </div>
-        <!-- ------------- -->
-        <div class="carousel-image">
-          <img class="image" src="https://i.imgur.com/15y4jR1.jpeg" alt="Tucson Sonora desert">
-        </div>
-        <!-- ------------- -->
-        <div class="carousel-image">
-          <img class="image" src="https://i.imgur.com/yOj9186.jpeg" alt="Tucson Sonora desert">
-        </div>
-        <!-- ------------- -->
-        <div class="carousel-image">
-          <img class="image" src="https://i.imgur.com/3TdjlRi.jpeg" alt="Tucson Sonora desert">
-        </div>
-        <!-- ------------- -->
-        <div class="carousel-image">
-          <img class="image" src="https://i.imgur.com/kKWPUnO.jpeg" alt="Tucson Sonora desert">
-        </div>
-        <!-- ------------- -->
-         <div class="carousel-image">
-          <img class="image" src="https://i.imgur.com/t8WhuhZ.jpeg" alt="Tucson Sonora desert">
-        </div>
-        <!-- ------------- -->
-        
-        
-        
-        
-        
-         <div class="carousel-image">
-          <img class="image" src="https://i.imgur.com/ltPkaO7.jpeg" alt="Tucson Sonora desert">
-        </div>
-        <!-- ------------- -->
-         <div class="carousel-image">
-          <img class="image" src="https://i.imgur.com/RmWRXfx.jpeg" alt="Tucson Sonora desert">
-        </div>
-        <!-- ------------- -->
-         <div class="carousel-image">
-          <img class="image" src="https://i.imgur.com/xDQLDMy.jpeg" alt="Tucson Sonora desert">
-        </div>
-        <!-- ------------- -->
-         <div class="carousel-image">
-          <img class="image" src="https://i.imgur.com/osNYP9m.jpeg" alt="Tucson Sonora desert">
-        </div>
-        <!-- ------------- -->
-        <div class="carousel-image">
-          <img class="image" src="https://i.imgur.com/Q3lAsAd.jpeg" alt="Tucson Sonora desert">
-        </div>
-        <!-- ------------- -->
-        <div class="carousel-image">
-          <img class="image" src="https://i.imgur.com/uc21RpD.jpeg" alt="Tucson Sonora desert">
-        </div>
-        <!-- ------------- -->
-        <div class="carousel-image">
-          <img class="image" src="https://i.imgur.com/fuCWxvZ.jpeg" alt="Tucson Sonora desert">
-        </div>
-        <!-- ------------- -->
-        <div class="carousel-image">
-          <img class="image" src="https://i.imgur.com/WXuE3N0.jpeg" alt="Tucson Sonora desert">
-        </div>
-        <!-- ------------- -->
-        <div class="carousel-image">
-          <img class="image" src="https://i.imgur.com/FPUpH2Z.jpeg" alt="Tucson Sonora desert">
-        </div>
-        <!-- ------------- -->
-        <div class="carousel-image">
-          <img class="image" src="https://i.imgur.com/jbVzWfw.jpeg" alt="Tucson Sonora desert">
-        </div>
-        <!-- ------------- -->
-        <div class="carousel-image">
-          <img class="image" src="https://i.imgur.com/Y1tWm5A.jpeg" alt="Tucson Sonora desert">
-        </div>
-        <!-- ------------- -->
-        <div class="carousel-image">
-          <img class="image" src="https://i.imgur.com/hL8gNpS.jpeg" alt="Tucson Sonora desert">
-        </div>
-        <!-- ------------- -->
-        <div class="carousel-image">
-          <img class="image" src="https://i.imgur.com/PtXDLdn.jpeg" alt="Tucson Sonora desert">
-        </div>
-        <!-- ------------- -->
-        <div class="carousel-image">
-          <img class="image" src="https://i.imgur.com/113xSHD.jpeg" alt="Tucson Sonora desert">
-        </div>
-        <!-- ------------- -->
-        <div class="carousel-image">
-          <img class="image" src="https://i.imgur.com/QBtpMX9.jpeg" alt="Tucson Sonora desert">
-        </div>
-        <!-- ------------- -->
-        <div class="carousel-image">
-          <img class="image" src="https://i.imgur.com/9llxaO4.jpeg" alt="Tucson Sonora desert">
-        </div>
-        <!-- ------------- -->
-        <div class="carousel-image">
-          <img class="image" src="https://i.imgur.com/wDw4SxE.jpeg" alt="Tucson Sonora desert">
-        </div>
-        <!-- ------------- -->
-        <div class="carousel-image">
-          <img class="image" src="https://i.imgur.com/5uw2d6n.jpeg" alt="Tucson Sonora desert">
-        </div>
-        <!-- ------------- -->
-        <div class="carousel-image">
-          <img class="image" src="https://i.imgur.com/kQhXq1l.jpeg[" alt="Tucson Sonora desert">
-        </div>
-        <!-- ------------- -->
-         <div class="carousel-image">
-          <img class="image" src="https://i.imgur.com/tfIZTBR.jpeg" alt="Tucson Sonora desert">
-        </div>
-        <!-- ------------- -->
-         <div class="carousel-image">
-          <img class="image" src="ttps://i.imgur.com/DBGZwaN.jpeg" alt="Tucson Sonora desert">
-        </div>
-        <!-- ------------- -->
-         <div class="carousel-image">
-          <img class="image" src="https://i.imgur.com/oD2iYsj.jpeg" alt="Tucson Sonora desert">
-        </div>
-        <!-- ------------- -->
-         <div class="carousel-image">
-          <img class="image" src="ttps://i.imgur.com/xgnPig0.jpeg" alt="Tucson Sonora desert">
-        </div>
-        <!-- ------------- -->
-         <div class="carousel-image">
-          <img class="image" src="https://i.imgur.com/j8grdax.jpeg" alt="Tucson Sonora desert">
-        </div>
-        <!-- ------------- -->
-         <div class="carousel-image">
-          <img class="image" src="https://i.imgur.com/zykcZ7H.jpeg" alt="Tucson Sonora desert">
-        </div>
-        <!-- ------------- -->
-         <div class="carousel-image">
-          <img class="image" src="https://i.imgur.com/PUWVVQB.jpeg" alt="Tucson Sonora desert">
-        </div>
-        <!-- ------------- -->
-         <div class="carousel-image">
-          <img class="image" src="https://i.imgur.com/sdo0hb2.jpeg" alt="Tucson Sonora desert">
-        </div>
-        <!-- ------------- -->
-          <div class="carousel-image">
-          <img class="image" src="https://i.imgur.com/7TlWa2A.jpeg" alt="Tucson Sonora desert">
-        </div>
-        <!-- ------------- -->
-          <div class="carousel-image">
-          <img class="image" src="https://i.imgur.com/Q1mIIfo.jpeg" alt="Tucson Sonora desert">
-        </div>
-        <!-- ------------- -->
-          <div class="carousel-image">
-          <img class="image" src="https://i.imgur.com/iVkN5q2.jpeg" alt="Tucson Sonora desert">
-        </div>
-        <!-- ------------- -->
-          <div class="carousel-image">
-          <img class="image" src="https://i.imgur.com/9X8Y6tJ.jpeg" alt="Tucson Sonora desert">
-        </div>
-        <!-- ------------- -->
-         <div class="carousel-image">
-          <img class="image" src="https://i.imgur.com/4VxGHcZ.jpeg" alt="Tucson Sonora desert">
-        </div>
-        <!-- ------------- -->
-          
-        <!-- ------------- -->
-       
-
-        <!--                     to have space between carousel and arrows -->
-        <br>
-        <!-- Next and previous buttons -->
-        <div class="transition-arrow">
-          <div class="arrows">
-            <a class="prev-image" onclick="plusSlideImage(-1)">&#10094;</a>
-            <br>
-            <a class="next-image" onclick="plusSlideImage(1)">&#10095;</a>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!--         END CAROUSEL -->
-  </main>
-</body>
-
-</html>
+  slideImage[imageIndex - 1].style.display = "block";
+  // dotsMonth[imageIndex - 1].className += " active";
+}
+// END CAROUSEL
